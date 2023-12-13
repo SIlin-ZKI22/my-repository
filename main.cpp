@@ -28,8 +28,6 @@ public:
 
 int main()
 {
-    // "foto" 		2022.01.15 "120518"
-
     QFile file("C:\\Users\\admin\\Desktop\\lab1\\files.txt");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
@@ -42,9 +40,6 @@ int main()
         QStringList fields = line.split('\"');
         QString fname = fields[1];
         QString bytes = fields[3];
-
-        qDebug() << fields[2].trimmed();
-
         QDate date = QDate::fromString(fields[2].trimmed(), "yyyy.MM.dd");
         // Обработка каждой строки данных
         files file (fname, date, bytes);
